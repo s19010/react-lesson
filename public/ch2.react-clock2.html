@@ -17,6 +17,10 @@
       d.getMinutes(),
       d.getSeconds()
     ]
+    const z2 = (v) => {
+      const s = '00' + v
+      return s.substr(s.length - 2, 2)
+    }
     const elem = ( <dev>
       {z2hour}:{z2min}:{z2sec}
       </div>);
