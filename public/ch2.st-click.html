@@ -11,15 +11,14 @@
   class Hello extends React.Component {
     render () {
       const clickHandler = (e) => {
-       window.alert('こんにちは')
+        window.alert('こんにちは。')
       }
       return (
-        <div onClick={clickHander}>Click Me</div>
+        <div onClick={clickHandler}>Click Me</div>
       )
     }
   }
   ReactDOM.render(
     <Hello />,
-    document.getElementById('root')
-  )
+    document.getElementById('root'))
 </script>
