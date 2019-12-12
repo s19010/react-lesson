@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>st-click</title>
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+<div id="root"></div>
+<script type="text/babel">
+  class Hello extends React.Component {
+    render () {
+      const clickHandler = (e) => {
+       window.alert('こんにちは')
+      }
+      return (
+        <div onClick={clickHander}>Click Me</div>
+      )
+    }
+  }
+  ReactDOM.render(
+    <Hello />,
+    document.getElementById('root')
+  )
+</script>
