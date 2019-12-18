@@ -9,22 +9,14 @@
 <div id="root"></div>
 
 <script type="text/babel">
-  setInterval(showClick, 1000)
-  funcion showClick () {
-    const d = new Date()
-    const [hour, min, sec] = [
-      d.getHours()
-      d.getMinutes(),
-      d.getSeconds()
-    ]
-    const z2 = (v) => {
-      const s = '00' + v
-      return s.substr(s.length - 2, 2)
-    }
-    const elem = ( <dev>
-      {z2hour}:{z2min}:{z2sec}
-      </div>);
-    ReactDOM.render(elem,
-    document.getElementById('root'))
-  }
+  const getCurrentFormatedTime = (d, sep) => ([
+  d.getHours(),
+  d.getMinutes(),
+  d.getSeconds()].map(v => v.toString().padStart(2, '0'))
+  .join(sep)
+)
+setInterval(() => ReactDOM.render(
+    <div>{getCurrentFormatedTime(new Date(), ':')}</div>,
+    document.getElementById('root')),
+  1000)
 </script>
