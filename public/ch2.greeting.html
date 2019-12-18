@@ -9,18 +9,12 @@
 <div id="root"></div>
 
 <script type="text/babel">
-const Greeting = props => <h1>{props.type}</h1>
-// Greetingコンポーネントの生成
-const createDom = messages => 
-  messages.map(message => <Greeting type={message} />)
-// 表示する挨拶
-const messages = [
-  "Good morning!",
-  "Hello!",
-  "Good afternoon!"
-]
-// Reactで表示する
-ReactDOM.render(
-  <div>{createDom(messages)}</div>,
-  document.getElementById('root'))
+  const greeting = (list, len) => <p>{list[Math.floor(Math.random * len)]}</p>
+  const messages = [
+    'おはようございます',
+    'こんにちは',
+    'こんばんは'
+  ]
+  const root = document.getElementById('root')
+  ReactDOM.render(greeting(messages, message.length), root)
 </script>
