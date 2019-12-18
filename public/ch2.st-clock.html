@@ -9,27 +9,24 @@
 <div id="root"></div>
 <script type="text/babel">
   class SClock extends React.Component {
-      constructor (props) {
-        super(props)
-        this.state = {
-          now: (new Date())
-        }
-        setInterval(e => {
-          this.setState({ now: (new Date()) })
-        }, 1000)
-      }
-      render () {
-        const now = this.state.now
-        const hh = this.fmt(now.getHours())
-        const mm = this.fmt(now.getMinutes())
-        const ss = this.fmt(now.getSeconds())
-        return (<div>{hh}:{mm}:{ss}</div>)
-      }
-      fmt (v) {
-        const s = "00" + v
-        return s.substr(s.length - 2, 2)
-      }
+    constructor (props) {
+      super(props)
+      this.state = {now: new Date}
     }
-    ReactDOM.render(<div><SClock /></div>,
-      document.getElementById('root'))
+    componentWillMount () {
+      setInterval(
+         () => this.setState({now: new Date()})
+         , 1000
+      )
+    }
+    render () {
+      const d = this.state.now
+      const result = [d.getHours(), d.getMinutes(), d.getSeconds()]
+        .map(v => v.toString().padStart(2, 0))
+        .join(':')
+      return <div>{result}</div>
+    }
+  }
+  
+  ReactDOM.render(<SClock />, document.getElementById('root'))
 </script>
